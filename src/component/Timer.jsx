@@ -61,7 +61,7 @@ const Timer = () => {
   };
 
   return (
-    <div className=" mt-5 py-3 bg-yellow-400 h-80">
+    <div className=" mt-5 py-3 h-80">
       <div className="">
         <h2 className="font-sans font-bold  text-7xl text-cyan-50 text-center">
           {timer}
