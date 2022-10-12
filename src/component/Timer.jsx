@@ -4,7 +4,7 @@ const Timer = () => {
   const Ref = useRef(null);
 
   // The state for our timer
-  const [timer, setTimer] = useState("00:00");
+  const [timer, setTimer] = useState("20:00");
 
   const getTimeRemaining = (e) => {
     const total = Date.parse(e) - Date.parse(new Date());
@@ -47,9 +47,13 @@ const Timer = () => {
     return deadline;
   };
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   clearTimer(getDeadTime());
+  // }, []);
+
+  const startTime = () => {
     clearTimer(getDeadTime());
-  }, []);
+  };
 
   const onClickReset = () => {
     clearTimer(getDeadTime());
@@ -62,6 +66,13 @@ const Timer = () => {
           {timer}
         </h2>
         <div className="mt-10 flex align-middle justify-center ">
+          <button
+            onClick={startTime}
+            className="text-center rounded-md border w-36  py-3 px-3 font-semibold mr-3"
+          >
+            Start
+          </button>
+
           <button
             onClick={onClickReset}
             className="text-center rounded-md border w-36  py-3 px-3 font-semibold"
