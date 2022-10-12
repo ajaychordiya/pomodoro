@@ -1,6 +1,6 @@
 import React from "react";
 import useForm from "../custom-hook/useForm";
-
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Loin = () => {
@@ -63,10 +63,15 @@ const Loin = () => {
           </button>
         </div>
       </form>
-      <div>or</div>
-      <button className="mx-auto  rounded-md border border-transparent w-36 mt-4 bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-        Signup
-      </button>
+      <div className="text-center">or</div>
+
+      <div className=" px-4 py-1 text-center sm:px-6">
+        <Link to="/signup">
+          <button className="mx-auto rounded-md border border-transparent w-36 mt-4 bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            Signup
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };
