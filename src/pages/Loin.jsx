@@ -20,10 +20,10 @@ const Loin = () => {
     console.log(value);
   };
   return (
-    <div className="w-72 mx-auto">
-      <h1 className="text-3xl font-bold text-center">Login</h1>
+    <div className="w-2/3 mx-auto mt-10 rounded-md border border-transparent  py-3 bg-gradient-to-r  from-cyan-400 to-blue-400">
+      <h1 className="text-3xl font-bold text-center mt-7">Login</h1>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className=" mx-auto w-72">
         <label
           htmlFor="email-address"
           className="block text-sm font-medium text-gray-700 mt-8"
@@ -65,7 +65,7 @@ const Loin = () => {
       </form>
       <div className="text-center">or</div>
 
-      <div className=" px-4 py-1 text-center sm:px-6">
+      <div className=" px-4 py-1 text-center mb-4 sm:px-6">
         <Link to="/signup">
           <button className="mx-auto rounded-md border border-transparent w-36 mt-4 bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
             Signup

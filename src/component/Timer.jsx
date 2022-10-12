@@ -4,31 +4,26 @@ const Timer = () => {
   const Ref = useRef(null);
 
   // The state for our timer
-  const [timer, setTimer] = useState("00:00:00");
+  const [timer, setTimer] = useState("00:00");
 
   const getTimeRemaining = (e) => {
     const total = Date.parse(e) - Date.parse(new Date());
     const seconds = Math.floor((total / 1000) % 60);
     const minutes = Math.floor((total / 1000 / 60) % 60);
-    const hours = Math.floor((total / 1000 / 60 / 60) % 24);
+    //const hours = Math.floor((total / 1000 / 60 / 60) % 24);
     return {
       total,
-      hours,
+
       minutes,
       seconds,
     };
   };
 
   const startTimer = (e) => {
-    let { total, hours, minutes, seconds } = getTimeRemaining(e);
+    let { total, minutes, seconds } = getTimeRemaining(e);
     if (total >= 0) {
-      // update the timer
-      // check if less than 10 then we need to
-      // add '0' at the beginning of the variable
       setTimer(
-        (hours > 9 ? hours : "0" + hours) +
-          ":" +
-          (minutes > 9 ? minutes : "0" + minutes) +
+        (minutes > 9 ? minutes : "0" + minutes) +
           ":" +
           (seconds > 9 ? seconds : "0" + seconds)
       );
@@ -36,7 +31,7 @@ const Timer = () => {
   };
 
   const clearTimer = (e) => {
-    setTimer("00:20:00");
+    setTimer("20:00");
 
     if (Ref.current) clearInterval(Ref.current);
     const id = setInterval(() => {
@@ -61,17 +56,19 @@ const Timer = () => {
   };
 
   return (
-    <div className=" mt-5 py-3 h-80 bg-gradient-to-r from-cyan-400 to-blue-400">
-      <div className="">
+    <div className=" mx-auto w-2/3 mt-10 rounded-md border border-transparent  py-3 h-80 bg-gradient-to-r  from-cyan-400 to-blue-400">
+      <div className="mt-16">
         <h2 className="font-sans font-bold  text-7xl text-cyan-50 text-center">
           {timer}
         </h2>
-        <button
-          onClick={onClickReset}
-          className="mx-auto text-center rounded-md border border-transparent w-36 mt-4 "
-        >
-          Reset
-        </button>
+        <div className="mt-10 flex align-middle justify-center ">
+          <button
+            onClick={onClickReset}
+            className="text-center rounded-md border w-36  py-3 px-3 font-semibold"
+          >
+            Reset
+          </button>
+        </div>
       </div>
     </div>
   );
