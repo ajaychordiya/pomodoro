@@ -7,13 +7,12 @@ const Timer = () => {
   const [timer, setTimer] = useState("20:00");
 
   const getTimeRemaining = (e) => {
+    console.log(e);
     const total = Date.parse(e) - Date.parse(new Date());
     const seconds = Math.floor((total / 1000) % 60);
     const minutes = Math.floor((total / 1000 / 60) % 60);
-    //const hours = Math.floor((total / 1000 / 60 / 60) % 24);
     return {
       total,
-
       minutes,
       seconds,
     };
@@ -33,7 +32,7 @@ const Timer = () => {
   const clearTimer = (e) => {
     setTimer("20:00");
 
-    if (Ref.current) clearInterval(Ref.current);
+    clearInterval(Ref.current);
     const id = setInterval(() => {
       startTimer(e);
     }, 1000);
@@ -42,14 +41,9 @@ const Timer = () => {
 
   const getDeadTime = () => {
     let deadline = new Date();
-
     deadline.setSeconds(deadline.getMinutes() + 1200);
     return deadline;
   };
-
-  // useEffect(() => {
-  //   clearTimer(getDeadTime());
-  // }, []);
 
   const startTime = () => {
     clearTimer(getDeadTime());
