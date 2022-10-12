@@ -10,6 +10,9 @@ const useFetch = (url) => {
       .then((x) => {
         console.log(x);
         setState({ data: x, loading: false });
+      })
+      .catch((err) => {
+        alert(err);
       });
   }, [url]);
 
