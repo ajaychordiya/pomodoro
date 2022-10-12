@@ -7,14 +7,14 @@ import Header from "./component/Header";
 
 function App() {
   return (
-    <div className="App">
+    <div className="w-2/3 mx-auto">
       <Router>
         <Header />
         <Switch>
           <Route path="/login">
             <Loin />
           </Route>
-          <Route path="/users">
+          <Route path="/dashboard">
             <Record />
           </Route>
         </Switch>
